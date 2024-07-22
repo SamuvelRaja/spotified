@@ -1,14 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "@fontsource/poppins"; /* Defaults to weight 400 */
 
 /* Active Navigation Link */
 .active {
   @apply text-cyan-500;
 }
-
+.tran-1{
+  @apply transition-all ease-in-out duration-250
+}
 .active svg {
   @apply text-cyan-500;
+}
+.nav-txt:hover svg,.nav-txt:hover img,.nav-txt:hover span{
+  fill: #fff;
+  color: #fff;
+  align-items:center ;
 }
 
 .bar:nth-child(2) {
@@ -43,4 +51,10 @@
 }
 body{
   color:#fff
+}
+*{
+  font-family:'Poppins', 'Arial', 'sans-serif';
+}
+.nbottom{
+  height:calc(100vh - 342px);
 }

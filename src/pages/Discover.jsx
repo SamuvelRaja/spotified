@@ -5,9 +5,9 @@ import Error from "../components/Error";
 const Discover = () => {
     //const{data, isFetching, error}=useGetGenreQuery('pop')
     
-    if(isFetching) return <Loader/>;
-    if(error) return <Error/>;
-    console.log(data)
+    // if(isFetching) return <Loader/>;
+    // if(error) return <Error/>;
+    // console.log(data)
 
 return (
     <div>

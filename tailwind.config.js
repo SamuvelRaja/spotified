@@ -3,9 +3,22 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      colors: {
-        black: '#191624',
+      transitionDuration: {
+        '250': '250ms',
       },
+      transitionTimingFunction: {
+        'in-out': 'ease-in-out',
+      },
+      colors: {
+          'primary-bg': '#121212',
+          'secondary-bg': '#181818',
+          'tertiary-bg': '#282828',
+          'primary-text': '#FFFFFF',
+          'secondary-text': '#B3B3B3',
+          'muted-text': '#8D8D8D',
+          'green': '#1DB954',
+          'green-hover': '#1ED760',
+        },
       animation: {
         slideup: 'slideup 1s ease-in-out',
         slidedown: 'slidedown 1s ease-in-out',
