@@ -13,6 +13,12 @@
 .active svg {
   @apply text-cyan-500;
 }
+.btn-white{
+  @apply rounded-2xl text-[14px] font-semibold  bg-white shadow-sm text-black px-5 py-[6px]
+}
+.btn-black{
+  @apply rounded-2xl text-[14px] font-semibold  bg-black shadow-sm text-white px-5 py-[6px]
+}
 .nav-txt:hover svg,.nav-txt:hover img,.nav-txt:hover span{
   fill: #fff;
   color: #fff;
@@ -56,5 +62,5 @@ body{
   font-family:'Poppins', 'Arial', 'sans-serif';
 }
 .nbottom{
-  height:calc(100vh - 342px);
+  height:calc(100vh - 200px);
 }
