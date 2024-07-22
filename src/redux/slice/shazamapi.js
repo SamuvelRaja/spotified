@@ -1,18 +1,21 @@
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query'
+//import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+const apiKey =import.meta.env.VITE_CLIENT_SECRET;
+console.log(apiKey)
 export const shazamApi=createApi({
     reducerPath:'shazamApi',
     baseQuery:fetchBaseQuery({
-        baseUrl:"https://api.spotify.com/v1/",
-        prepareHeaders:(headers)=>{
-            headers.set("Authorization",process.env.API_KEY)
-            return headers
-        }
+        baseUrl:"https://www.googleapis.com/youtube/v3/",
+        // prepareHeaders:(headers)=>{
+        //     headers.set("x-rapidapi-key", clientSecret)
+        //     return headers
+        // }
     }),
     endpoints:(builder)=>({
-        getCategory:builder.query({query:"/browse/categories"})
+        getGenre:builder.query({query:(genre) => `/search?part=snippet&maxResults=10&q=${genre}+music&type=video&key=${apiKey}`}),
     })
 })
 
-export const { useGetCategoryQuery } = shazamApi
+export const { useGetGenreQuery } = shazamApi
 
