@@ -16,7 +16,14 @@ export const genres = [
   { title: 'House', value: 'HOUSE' },
   { title: 'K-Pop', value: 'K_POP' },
 ];
-
+export const labels = [
+  { name: 'All', value: 'POP' },
+  { name: 'Tamil', value: 'Tamil Hits' },
+  { name: 'English', value: 'English Hits' },
+  { name: 'Top Artists', value:'Top Artists' },
+  { name: 'Trending', value:'Trending' },
+  { name: 'Top 50', value:'Top 50' },
+];
 export const links = [
   { name: 'Discover', to: '/', icon: HiOutlineHome },
   { name: 'Around You', to: '/around-you', icon: HiOutlinePhotograph },

@@ -12,7 +12,9 @@ const App = () => {
       <Sidebar />
       <div className="flex-1 flex flex-col bg-primary-bg m-2 ml-0 rounded-md">
         {/* <Searchbar /> */}
-
+        <div className="sticky relative top-0 h-fit ">
+            <TopPlay />
+          </div>
         <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
@@ -25,9 +27,7 @@ const App = () => {
               <Route path="/search/:searchTerm" element={<Search />} />
             </Routes>
           </div>
-          <div className="xl:sticky relative top-0 h-fit">
-            <TopPlay />
-          </div>
+          
         </div>
       </div>
 
