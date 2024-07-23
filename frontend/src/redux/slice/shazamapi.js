@@ -1,20 +1,19 @@
 //import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const apiKey =import.meta.env.VITE_CLIENT_SECRET;
-console.log(apiKey)
+const clientSky =localStorage.getItem('acctk')
 export const shazamApi=createApi({
     reducerPath:'shazamApi',
     baseQuery:fetchBaseQuery({
-        baseUrl:"https://www.googleapis.com/youtube/v3/",
-        // prepareHeaders:(headers)=>{
-        //     headers.set("x-rapidapi-key", clientSecret)
-        //     return headers
-        // }
+        baseUrl:"https://api.spotify.com/v1",
+        prepareHeaders:(headers)=>{
+            headers.set("Authorization", `Bearer ${clientSky}`)
+            return headers
+        }
     }),
     endpoints:(builder)=>({
-        getGenre:builder.query({query:(genre) => `/search?part=snippet&maxResults=25&q=${genre}+official music video&type=video&key=${apiKey}`}),
-        getPlaylist:builder.query({query:(playlist) => `/search?part=snippet&maxResults=25&q=${playlist}+official music video+playlist&type=video&key=${apiKey}`}),
+        getGenre:builder.query({query:(genre) => `/browse/categories`}),
+        getPlaylist:builder.query({query:(playlist) => `/albums?ids=382ObEPsp2rxGrnsizN5TX%2C1A2GTWGtFfWp7KSQTwWOyo%2C2noRn2Aes5aoNVsU6iWThc`}),
     })
 })
 
