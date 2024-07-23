@@ -3,16 +3,27 @@ import { Route, Routes } from 'react-router-dom';
 
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
 import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from './pages';
+import { useEffect } from 'react';
+import Cookies from 'js-cookie';
+import { fetchAccessToken } from './assets/utility/fetchaccess';
 
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
+
+  useEffect(() => {
+    const token = Cookies.get('acctk');
+    console.log("app",token)
+    if (!token) {
+      fetchAccessToken();
+    }
+  }, []);
 
   return (
     <div className="relative flex">
       <Sidebar />
       <div className="flex-1 flex flex-col bg-primary-bg m-2 ml-0 rounded-md">
         {/* <Searchbar /> */}
-        <div className="sticky relative top-0 h-fit ">
+        <div className=" relative top-0 h-fit ">
             <TopPlay />
           </div>
         <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
