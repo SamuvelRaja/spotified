@@ -45,13 +45,13 @@ app.post('/token', async (req, res) => {
       maxAge: 3600000
     });
 
-    res.status(200).json({ message: 'sucess' });
+    res.status(200).json({ tkn: accessToken });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
   }else{
-  res.json({ message: 'already exist' })
+  res.status(201).json({ message: 'already exist' })
   }
 });
 
