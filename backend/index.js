@@ -8,16 +8,22 @@ const app = express();
 const port = 8000;
 
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:3000', // Change this to your client's origin
+  credentials: true // Allow credentials (cookies)
+}))
 app.use(cookieParser());
 
 
 app.post('/token', async (req, res) => {
-  const { secret } = req.body;
-    console.log(req.body)
-  if (secret !== process.env.SECRET_KEY) {
+  // Convert the cookie object to a regular JavaScript object
+    
+  if(req.cookies['acctk']==undefined){
+    
+    const { secret } = req.body;
+    if (secret !== process.env.SECRET_KEY) {
     return res.status(403).json({ error: 'Forbidden' });
-  }
+    }
 
   try {
     const authResponse = await axios({
@@ -31,18 +37,21 @@ app.post('/token', async (req, res) => {
     });
 
     const accessToken = authResponse.data.access_token;
-    console.log(accessToken)
+    
     // Set the access token as a cookie
     res.cookie('acctk', accessToken, {
-      httpOnly: true, // Prevents JavaScript access to the cookie
-      secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-      maxAge: 3600000 // Cookie expiration time in milliseconds (e.g., 1 hour)
+      httpOnly: true, 
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 3600000
     });
 
     res.status(200).json({ message: 'sucess' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
+  }
+  }else{
+  res.json({ message: 'already exist' })
   }
 });
 

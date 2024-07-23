@@ -4,18 +4,17 @@ import { Route, Routes } from 'react-router-dom';
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
 import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from './pages';
 import { useEffect } from 'react';
-import Cookies from 'js-cookie';
-import { fetchAccessToken } from './assets/utility/fetchaccess';
+import jsCookie from 'js-cookie';
+import { fetchAccessToken} from './assets/utility/fetchaccess';
 
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
   useEffect(() => {
-    const token = Cookies.get('acctk');
-    console.log("app",token)
-    if (!token) {
+    const cookieValue = jsCookie.get('acctk');
+      console.log(cookieValue)
       fetchAccessToken();
-    }
+    
   }, []);
 
   return (
