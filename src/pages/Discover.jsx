@@ -8,8 +8,8 @@ import { useState } from "react";
 
 const Discover = () => {
     //const{data, isFetching, error}=useGetPlaylistQuery('POP')
-    const{data, isFetching, error}=useGetGenreQuery('POP')
     const[genreQuery, setGenreQuery]=useState("POP")
+    const{data, isFetching, error}=useGetGenreQuery(genreQuery)
     if(isFetching) return <Loader/>;
     if(error) return <Error/>;
     console.log(data.items,data.items[0].snippet.title)
@@ -23,7 +23,7 @@ return (
                 })
             }
         </div>
-        <div className="flex flex-wrap gap-1 mt-8 rounded-md">
+        <div className="flex flex-wrap gap-1  rounded-md">
             {
                 data.items.map((item)=>{
                     return <ArtistCard key={item.id.videoId} img={item.snippet.thumbnails.medium.url} title={item.snippet.title} description={item.snippet.description} />
