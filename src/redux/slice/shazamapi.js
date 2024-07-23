@@ -14,8 +14,9 @@ export const shazamApi=createApi({
     }),
     endpoints:(builder)=>({
         getGenre:builder.query({query:(genre) => `/search?part=snippet&maxResults=10&q=${genre}+music&type=video&key=${apiKey}`}),
+        getPlaylist:builder.query({query:(playlist) => `/search?part=snippet&maxResults=25&q=${playlist}+music+playlist&type=video&key=${apiKey}`}),
     })
 })
 
-export const { useGetGenreQuery } = shazamApi
+export const { useGetGenreQuery,useGetPlaylistQuery } = shazamApi
 
