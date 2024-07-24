@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-
+import Loader from "./components/Loader";
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
 import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from './pages';
 import { useEffect } from 'react';
@@ -11,10 +11,10 @@ const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
   useEffect(() => {
-    const cookieValue = jsCookie.get('acctk');
-      console.log(cookieValue)
+    console.log(!localStorage.getItem("acctk"))
+    if(!localStorage.getItem("acctk")){
       fetchAccessToken();
-    
+    }
   }, []);
 
   return (

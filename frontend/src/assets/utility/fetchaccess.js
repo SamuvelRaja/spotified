@@ -11,9 +11,10 @@ export const fetchAccessToken = async () => {
     }, {
       withCredentials: true // Include credentials (cookies)
     });
-    console.log(response.data.tkn,"tkn")
+    
     if(response.status==200){
       localStorage.setItem("acctk",response.data.tkn)
+      window.location.reload()
     }
 
   } catch (error) {
