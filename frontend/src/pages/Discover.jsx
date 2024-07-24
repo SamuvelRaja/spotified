@@ -53,7 +53,7 @@ return (
         <div className="flex flex-wrap justify-between gap-1  rounded-[8px]">
             {
                 genreData?.playlists.items.map((item,i)=>{
-                    return <ArtistCard key={item.id+i} img={item.images[0].url} title={item.name} description={item.description} />
+                    return <ArtistCard key={item.id+i} img={item.images[0].url} title={item.name} description={item.description} id={item.id} />
                 })
             }
         </div>

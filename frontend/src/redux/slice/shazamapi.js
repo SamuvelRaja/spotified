@@ -31,7 +31,7 @@ export const shazamApi = createApi({
     endpoints: (builder) => ({
         getAllGenre: builder.query({ query: () => `/browse/categories` }),
         getGenre: builder.query({ query: (genre) => `/browse/categories/${genre}/playlists` }),
-        getPlaylist: builder.query({ query: (playlist) => `/albums?ids=382ObEPsp2rxGrnsizN5TX%2C1A2GTWGtFfWp7KSQTwWOyo%2C2noRn2Aes5aoNVsU6iWThc` }),
+        getPlaylist: builder.query({ query: (trackid) => `/playlists/${trackid}/tracks` }),
     })
 });
 

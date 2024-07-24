@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Loader from "./components/Loader";
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
-import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from './pages';
+import { ArtistDetails,Tracks, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from './pages';
 import { useEffect } from 'react';
 import jsCookie from 'js-cookie';
 import { fetchAccessToken} from './assets/utility/fetchaccess';
@@ -33,6 +33,7 @@ const App = () => {
               <Route path="/top-charts" element={<TopCharts />} />
               <Route path="/around-you" element={<AroundYou />} />
               <Route path="/artists/:id" element={<ArtistDetails />} />
+              <Route path="/tracks/:id" element={<Tracks />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
             </Routes>

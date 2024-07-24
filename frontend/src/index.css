@@ -1,7 +1,8 @@
+@import "@fontsource/poppins"; /* Defaults to weight 400 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "@fontsource/poppins"; /* Defaults to weight 400 */
+
 
 /* Active Navigation Link */
 .active {
