@@ -15,6 +15,9 @@ export const fetchAccessToken = async () => {
     if(response.status==200){
       localStorage.setItem("acctk",response.data.tkn)
       window.location.reload()
+    }else if(response.status==201){
+      localStorage.setItem("acctk",response.data.tkn)
+      window.location.reload()
     }
 
   } catch (error) {

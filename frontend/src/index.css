@@ -19,6 +19,9 @@
 .btn-black{
   @apply rounded-2xl text-[14px] font-semibold  bg-black shadow-sm text-white px-5 py-[6px]
 }
+.art-cards:hover .mini-play{
+  @apply animate-wakeup opacity-100
+}
 .nav-txt:hover svg,.nav-txt:hover img,.nav-txt:hover span{
   fill: #fff;
   color: #fff;

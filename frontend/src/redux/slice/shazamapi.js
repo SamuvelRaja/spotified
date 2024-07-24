@@ -1,6 +1,6 @@
 //import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
+import { fetchAccessToken } from '../../assets/utility/fetchaccess';
 
 // Your existing access token retrieval
 const clientSky = localStorage.getItem('acctk');
@@ -23,7 +23,7 @@ export const shazamApi = createApi({
 
         // If we get a 401, call the fetchaccess function
         if (result.error && result.error.status === 401) {
-            await fetchaccess(); // This function handles token refresh and updates localStorage
+            await fetchAccessToken(); // This function handles token refresh and updates localStorage
         }
 
         return result;

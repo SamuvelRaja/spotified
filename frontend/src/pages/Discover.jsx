@@ -45,15 +45,15 @@ return (
                 // labels.map((item)=>{
                 //     return <Label key={item.name} name={item.name} value={item.value} query={genreQuery} setQuery={setGenreQuery}/>
                 // })
-                myList.map((item)=>{
+                myList?.map((item)=>{
                     return <Label key={item.id} name={item.name} value={item.id} query={genreQuery} setQuery={setGenreQuery}/>
                 })
             }
         </div>
-        <div className="flex flex-wrap gap-1  rounded-[8px]">
+        <div className="flex flex-wrap justify-between gap-1  rounded-[8px]">
             {
                 genreData?.playlists.items.map((item,i)=>{
-                    return <ArtistCard key={item.id+i} img={item.images[0].url} title={item.name} description={""} />
+                    return <ArtistCard key={item.id+i} img={item.images[0].url} title={item.name} description={item.description} />
                 })
             }
         </div>

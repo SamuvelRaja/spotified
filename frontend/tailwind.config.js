@@ -17,7 +17,7 @@ module.exports = {
           'secondary-text': '#B3B3B3',
           'muted-text': '#8D8D8D',
           'green': '#1DB954',
-          'green-hover': '#1ED760',
+          'green-h': '#1ED760',
         },
       animation: {
         slideup: 'slideup 1s ease-in-out',
@@ -26,6 +26,7 @@ module.exports = {
         slideright: 'slideright 1s ease-in-out',
         wave: 'wave 1.2s linear infinite',
         slowfade: 'slowfade 2.2s ease-in-out',
+        wakeup: 'wakeup 0.3s ease-in',
       },
       keyframes: {
         slowfade: {
@@ -33,6 +34,10 @@ module.exports = {
           to: { opacity: 1 },
         },
         slideup: {
+          from: { opacity: 0, transform: 'translateY(25%)' },
+          to: { opacity: 1, transform: 'none' },
+        },
+        wakeup: {
           from: { opacity: 0, transform: 'translateY(25%)' },
           to: { opacity: 1, transform: 'none' },
         },

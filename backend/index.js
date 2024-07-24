@@ -51,7 +51,7 @@ app.post('/token', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
   }else{
-  res.status(201).json({ message: 'already exist' })
+  res.status(201).json({ tkn: req.cookies['acctk'] })
   }
 });
 
