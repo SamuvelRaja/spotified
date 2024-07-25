@@ -37,7 +37,7 @@ const Discover = () => {
     if (genresError) return <Error />;
     
 return (
-    <div>
+    <div className="pt-16 px-6">
         <div className="flex gap-2 mt-4 flex-wrap">
             {
                 

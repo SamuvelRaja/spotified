@@ -22,10 +22,10 @@ const App = () => {
       <Sidebar />
       <div className="flex-1 flex flex-col bg-primary-bg m-2 ml-0 rounded-md">
         {/* <Searchbar /> */}
-        <div className=" relative top-0 h-fit ">
+        <div className=" sticky top-2 h-[0px] z-50 bg-fixed bg-tertiary-bg ">
             <TopPlay />
           </div>
-        <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
+        <div className=" h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
               <Route path="/" element={<Discover />} />
