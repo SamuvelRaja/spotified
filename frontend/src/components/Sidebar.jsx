@@ -2,11 +2,14 @@ import Home from "/src/assets/home"
 import Search from "/src/assets/search"
 import lib from "/src/assets/lib.svg"
 import plus from "/src/assets/plus.svg"
+import { Link } from "react-router-dom"
 
 const Sidebar = () => (
   <nav className="max-w-[420px] min-w-[280px] lg:w-[25%] p-2 ">
     <div className="flex gap-6 flex-col ntop bg-primary-bg p-8 mb-2 rounded-md ">
-      <div className="flex  gap-6 nav-txt "><Home/> <span className=" font-medium tran-1 text-secondary-text "> Home</span></div>
+      <Link to={"/"}>
+        <div className="flex  gap-6 nav-txt "><Home/> <span className=" font-medium tran-1 text-secondary-text "> Home</span></div>
+      </Link>
       <div className="flex  gap-6 nav-txt"><Search/> <span className=" font-medium tran-1 text-secondary-text ">Search</span></div>
     </div>
     <div className="flex flex-col nbottom  bg-primary-bg rounded-md p-[6px]">

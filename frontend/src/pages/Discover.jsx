@@ -40,9 +40,7 @@ return (
     <div>
         <div className="flex gap-2 mt-4 flex-wrap">
             {
-                // labels.map((item)=>{
-                //     return <Label key={item.name} name={item.name} value={item.value} query={genreQuery} setQuery={setGenreQuery}/>
-                // })
+                
                 myList?.map((item)=>{
                     return <Label key={item.id} name={item.name} value={item.id} query={genreQuery} setQuery={setGenreQuery}/>
                 })
