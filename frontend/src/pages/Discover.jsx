@@ -7,36 +7,34 @@ import { labels } from "../assets/constants";
 import { useState, useEffect } from "react";
 
 const Discover = () => {
+    // Fetch genre list data
     const { data: genreListData, isFetching: isFetchingGenres, error: genresError } = useGetAllGenreQuery();
     console.log(genreListData, "gg");
-    const genres=["Tamil","Malayalam","Love","Hindi","Charts","Party","Pop"]
-    let myList=[];
-    if(genreListData){
-        myList= genreListData?.categories?.items.filter((item)=>{
-        return genres.includes(item.name)
-    })
-    }
-    console.log(myList,"ml")
-  // Initial query should be undefined until data is fetched
-  const initialQuery = [...myList].shift()?.id;
 
-  const [genreQuery, setGenreQuery] = useState(initialQuery);
+    // Set initial state for genre query and myList
+    const [genreQuery, setGenreQuery] = useState(null);
+    const [myList, setMyList] = useState([]);
+    const genres = ["Tamil", "Malayalam", "Love", "Hindi", "Charts", "Party", "Pop"];
 
-  // Update genreQuery when initialQuery changes
-  useEffect(() => {
-    if (initialQuery) {
-      setGenreQuery(initialQuery);
-    }
-  }, [initialQuery]);
+    // Update genre query and myList once the genre list data is fetched
+    useEffect(() => {
+        if (genreListData) {
+            const filteredList = genreListData?.categories?.items.filter((item) => genres.includes(item.name));
+            setMyList(filteredList);
+            if (filteredList.length > 0) {
+                setGenreQuery(filteredList[0]?.id);
+            }
+        }
+    }, [genreListData]);
 
-  const { data: genreData, isFetching: isFetchingGenreData } = useGetGenreQuery(genreQuery,{
-    skip: !genreQuery,
-  });
-  console.log("gid", genreQuery, genreData, "gd");
+    // Fetch genre data based on genre query
+    const { data: genreData, isFetching: isFetchingGenreData } = useGetGenreQuery(genreQuery, {
+        skip: !genreQuery,
+    });
 
-  if (isFetchingGenres) return <Loader />;
-  if (genresError) return <Error />;
-
+    // Handle loading and error states
+    if (isFetchingGenres ) return <Loader />;
+    if (genresError) return <Error />;
     
 return (
     <div>
