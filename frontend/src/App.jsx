@@ -18,7 +18,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="relative flex">
+    <div className="relative flex font-spotify">
       <Sidebar />
       <div className="flex-1 flex flex-col bg-primary-bg m-2 ml-0 rounded-md">
         {/* <Searchbar /> */}

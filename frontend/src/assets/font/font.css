@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'SpotifyMix';
+  src: url('./SpotifyMixUI-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpotifyMix';
+  src: url('./SpotifyMixUI-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpotifyMixUI';
+  src: url('./SpotifyMixUITitle-Bold.woff2') format('woff2'), 
+  url('./SpotifyMixUITitle-Extrabold.woff2') format('woff2')
+  url('./SpotifyMixUITitleVariable.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}

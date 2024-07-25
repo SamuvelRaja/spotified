@@ -1,4 +1,4 @@
-@import "@fontsource/poppins"; /* Defaults to weight 400 */
+/* Defaults to weight 400 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -62,9 +62,12 @@
 body{
   color:#fff
 }
-*{
-  font-family:'Poppins', 'Arial', 'sans-serif';
-}
 .nbottom{
   height:calc(100vh - 200px);
+}
+img{
+  aspect-ratio: 1/1;
+  block-size: auto;
+  object-fit: cover;
+  max-width: 100%;
 }

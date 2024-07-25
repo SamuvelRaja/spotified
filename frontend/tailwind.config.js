@@ -3,6 +3,10 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily:{
+        spotify: ['SpotifyMix', 'sans-serif'],
+        spotifyTitle:['SpotifyMixUI', 'sans-serif']
+      },
       transitionDuration: {
         '250': '250ms',
       },
