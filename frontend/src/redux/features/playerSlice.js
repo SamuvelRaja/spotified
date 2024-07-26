@@ -1,65 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
-const initialState = {
-  currentSongs: [],
-  currentIndex: 0,
-  isActive: false,
-  isPlaying: false,
-  activeSong: {},
-  genreListId: '',
-};
+const initialState={
+    song:null,
+    currentTime:0,
+    isPlaying:false,
+    trackIndex:null
+}
 
-const playerSlice = createSlice({
-  name: 'player',
-  initialState,
-  reducers: {
-    setActiveSong: (state, action) => {
-      state.activeSong = action.payload.song;
+export const songSlice=createSlice({
+    name:'song',
+    initialState,
+    reducers:{
+        setSong:(state,action)=>{
+            const{item,id}=action.payload
+            state.song=item.track
+            state.isPlaying=true
+            state.trackIndex=id
+        }
+    }
+})
 
-      if (action.payload?.data?.tracks?.hits) {
-        state.currentSongs = action.payload.data.tracks.hits;
-      } else if (action.payload?.data?.properties) {
-        state.currentSongs = action.payload?.data?.tracks;
-      } else {
-        state.currentSongs = action.payload.data;
-      }
-
-      state.currentIndex = action.payload.i;
-      state.isActive = true;
-    },
-
-    nextSong: (state, action) => {
-      if (state.currentSongs[action.payload]?.track) {
-        state.activeSong = state.currentSongs[action.payload]?.track;
-      } else {
-        state.activeSong = state.currentSongs[action.payload];
-      }
-
-      state.currentIndex = action.payload;
-      state.isActive = true;
-    },
-
-    prevSong: (state, action) => {
-      if (state.currentSongs[action.payload]?.track) {
-        state.activeSong = state.currentSongs[action.payload]?.track;
-      } else {
-        state.activeSong = state.currentSongs[action.payload];
-      }
-
-      state.currentIndex = action.payload;
-      state.isActive = true;
-    },
-
-    playPause: (state, action) => {
-      state.isPlaying = action.payload;
-    },
-
-    selectGenreListId: (state, action) => {
-      state.genreListId = action.payload;
-    },
-  },
-});
-
-export const { setActiveSong, nextSong, prevSong, playPause, selectGenreListId } = playerSlice.actions;
-
-export default playerSlice.reducer;
+export const{setSong}=songSlice.actions
+export default songSlice.reducer

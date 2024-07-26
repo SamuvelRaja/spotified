@@ -7,8 +7,12 @@ import { convertMstoMins } from "../assets/utility";
 import miniPlay from '../assets/miniplay.svg'
 import plus from '../assets/plus.svg'
 import time from '../assets/time.svg'
+import { useDispatch } from "react-redux";
+import { setSong } from "../redux/features/playerSlice";
+
 
 const Tracks = () => {
+    const dispatch=useDispatch()
     const{id}=useParams()
     const{data, isFetching, error}=useGetPlaylistQuery(id)
     // const{data:trackData, isFetching:isTrackFetching, error:isTrackError}=useGetTrackQuery(id)
@@ -53,16 +57,16 @@ console.log('Primary color in RGB:', primaryColor);
               <div>
                 <img src={data?.images[0]?.url} className="min-w-[190px] rounded-md"  width={"232px"} height={"232px"} alt="" />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col drop-shadow-sm">
                 <p className="mt-6 text-[14px] font-thin text-[#ffffffb2]">Playlist</p>
-                <h1 className="mt-2 pr-6 text-[32px] md:text-[48px] xl:text-[72px] w-full 2xl:text-[96px] font-spotifyTitle whitespace-nowrap truncate">{data?.name}</h1>
-                <p className="mt-0 text-[14px] font-thin text-[#ffffffb2]">{data?.description}</p>
+                <h1 className="mt-2 drop-shadow-sm pr-6 text-[32px] md:text-[48px] xl:text-[72px] w-full 2xl:text-[96px] font-spotifyTitle whitespace-nowrap truncate">{data?.name}</h1>
+                <p className="mt-0 drop-shadow-sm text-[14px] font-thin text-[#ffffffb2]">{data?.description}</p>
                 <div className="mt-4 flex items-center">
                   <span>
                     <img src={spotify} alt="" className=" w-[24px] h-[24px] mr-2" /> 
                   </span>
                   <p className=" text-[14px] font-thin">
-                    <b className="font-semibold"> Spotify </b> . {data?.followers.total} Saves . {data?.tracks?.total} songs
+                    <b className="font-semibold drop-shadow-sm"> Spotify </b> . {data?.followers.total} Saves . {data?.tracks?.total} songs
                   </p>
                   
                 </div>
@@ -94,7 +98,9 @@ console.log('Primary color in RGB:', primaryColor);
               <div className="flex flex-col gap-2 mt-3" >
                 {
                   data?.tracks?.items?.map((item,i)=>{
-                      return <div className="grid grid-cols-12 gap-4  w-full py-1 px-4 items-center">
+                      return <div key={item.track.name+i}
+                                  onClick={()=>{dispatch(setSong({item,i}))}}
+                                  className="grid grid-cols-12 gap-4  w-full py-1 px-4 items-center">
                               <div className="text-secondary-text truncate text-[14px] font-thin col-span-1 ">{i}</div>
                               <div className="truncate text-[14px] font-thin col-span-10 lg:col-span-5 flex gap-2 items-center">
                                 <img src={item.track.album?.images[2]?.url} alt={item.track.album.name} className="w-[40px] h-[40px] rounded-md" />
