@@ -34,8 +34,8 @@ const MusicPlayer = () => {
 
 
   return (
-    <div className="relative sm:px-12 px-8 w-full flex items-center justify-between">
-      <div className="grid grid-cols-12 items-center justify-center">
+    <div className="relative sm:px-6 px-1 w-full flex items-center justify-between">
+      <div className="grid grid-cols-12 items-center justify-center w-full">
         <div className="truncate text-[14px] font-thin  flex gap-4 items-center col-span-4">
         { data? 
           <>
@@ -49,7 +49,7 @@ const MusicPlayer = () => {
           </> 
         :" " }
         </div>
-        <div className='items-center col-span-5'>
+        <div className='flex flex-col col-span-5 items-center'>
           <Controls isPlaying={isPlaying} repeat={repeat} setRepeat={setRepeat}
           shuffle={shuffle} setShuffle={setShuffle} currentSongs={convertMstoMins(data?.duration_ms||'0000')} 
           handlePlayPause={handlePlayPause} handlePrevSong={handlePrevSong} handleNextSong={handleNextSong}/>
