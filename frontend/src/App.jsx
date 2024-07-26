@@ -10,21 +10,20 @@ const App = () => {
 
 
   useEffect(() => {
-    console.log(!localStorage.getItem("acctk"))
     if(!localStorage.getItem("acctk")){
       fetchAccessToken();
     }
   }, []);
 
   return (
-    <div className="relative flex font-spotify">
+    <div className="relative flex font-spotify h-screen">
       <Sidebar />
-      <div className="flex-1 flex flex-col bg-primary-bg m-2 ml-0 rounded-md">
+      <div className="flex-1 h-[calc(100vh-96px)]  flex flex-col bg-primary-bg m-2 ml-0 rounded-md">
         {/* <Searchbar /> */}
         <div className=" sticky top-2 h-[0px] z-50 bg-fixed bg-tertiary-bg ">
             <TopPlay />
           </div>
-        <div className=" h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
+        <div className=" rounded-md overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
               <Route path="/" element={<Discover />} />
@@ -36,7 +35,7 @@ const App = () => {
           
         </div>
       </div>
-      <div className="absolute h-[72px] bottom-0 left-0 right-0 flex animate-slideup bg-black z-10">
+      <div className="absolute h-[72px] bottom-2 left-0 right-0 flex animate-slideup bg-black z-10 px-2">
           <MusicPlayer />
         </div>
    

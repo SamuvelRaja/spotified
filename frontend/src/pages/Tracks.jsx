@@ -27,11 +27,10 @@ const Tracks = () => {
         if(imageUrl!=undefined){
             const pColor = await getImagePrimaryColor(imageUrl);
             const color = pColor;
-            const alpha = 0.80;
+            const alpha = 0.90;
             const lastCommaIndex = color.lastIndexOf(')')-2;
             const newColor = color.slice(0, lastCommaIndex) + `, ${alpha})`;
             setPrimaryColor({primary1:pColor,primary2:newColor});
-            console.log('Primary color in RGB:', primaryColor);
         }
         
       }
@@ -40,7 +39,7 @@ const Tracks = () => {
     callColor();
   }, [data]);
 
-  console.log(data, "playlists");
+  
 
   if (isFetching) {
     return <div>Loading...</div>;
@@ -49,7 +48,6 @@ const Tracks = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-console.log('Primary color in RGB:', primaryColor);
   return (
         <div>
           <div className="px-6 pt-20 pb-[60px] rounded-t-md" style={{background:primaryColor.primary1}}>
@@ -74,7 +72,7 @@ console.log('Primary color in RGB:', primaryColor);
             </div>
           </div>
           {/* top banner */}
-          <div className=" px-6" style={{background:`linear-gradient(180deg, ${primaryColor.primary2} 0%, rgba(18,18,18,0.8953956582633054) 10%)`}}>
+          <div className=" px-6" style={{background:`linear-gradient(180deg, ${primaryColor.primary2} 0%, rgba(18,18,18,0.8953956582633054) 9%)`}}>
               <div className="flex items-center gap-6 py-4">
                   <div className=" rounded-full  w-[48px] h-[48px] flex  items-center justify-center bg-green-h hover:bg-[#3be477]">
                     <img src={miniPlay} alt="icon" className="w-[20px] h-[20px]"  />
@@ -107,7 +105,7 @@ console.log('Primary color in RGB:', primaryColor);
                                 <div className="flex flex-col">
                                   <p className="text-[16px] font-thin">{item.track.name}</p>
                                   <Link className="text-[14px] font-thin text-secondary-text">
-                                  {item.track.artists.map((a)=>a.name+" ")}
+                                  {item.track.artists.map((a)=>a.name+", ")}
                                   </Link>
                                 </div>
                               </div>
