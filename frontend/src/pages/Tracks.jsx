@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import spotify from "../assets/spotify.svg"
 import { useEffect, useState } from "react";
 import getImagePrimaryColor from "../assets/utility/scrapeColor";
+import { convertMstoMins } from "../assets/utility";
 import miniPlay from '../assets/miniplay.svg'
 import plus from '../assets/plus.svg'
 import time from '../assets/time.svg'
@@ -82,31 +83,31 @@ console.log('Primary color in RGB:', primaryColor);
                   </div>
               </div>
               <div>
-                <div className="grid grid-cols-12 border-b border-[#ffffff1a] w-full pb-2">
+                <div className="grid grid-cols-12 gap-4 border-b border-[#ffffff1a] w-full pb-2 px-4">
                   <div className="text-secondary-text text-[14px] font-thin col-span-1 ">#</div>
-                  <div className="text-secondary-text text-[14px] font-thin col-span-4 ">Title</div>
-                  <div className="text-secondary-text text-[14px] font-thin col-span-3 ">Album</div>
-                  <div className="text-secondary-text text-[14px] font-thin col-span-2 ">Date Added</div>
-                  <div className=" col-span-2"><img src={time} alt="time icon" className="w-[16px] h-[16px]" /></div>
+                  <div className="text-secondary-text text-[14px] font-thin col-span-10 lg:col-span-5 ">Title</div>
+                  <div className="text-secondary-text text-[14px] font-thin col-span-3 hidden lg:block ">Album</div>
+                  <div className="text-secondary-text text-[14px] font-thin col-span-2 hidden lg:block">Date Added</div>
+                  <div className=" col-span-1"><img src={time} alt="time icon" className="w-[16px] h-[16px]" /></div>
                 </div>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-2 mt-3" >
                 {
                   data?.tracks?.items?.map((item,i)=>{
-                      return <div className="grid grid-cols-12  w-full pb-2">
+                      return <div className="grid grid-cols-12 gap-4  w-full py-1 px-4 items-center">
                               <div className="text-secondary-text truncate text-[14px] font-thin col-span-1 ">{i}</div>
-                              <div className="truncate text-[14px] font-thin col-span-4 flex">
-                                <img src={item.track.album?.images[2]?.url} alt="" />
+                              <div className="truncate text-[14px] font-thin col-span-10 lg:col-span-5 flex gap-2 items-center">
+                                <img src={item.track.album?.images[2]?.url} alt={item.track.album.name} className="w-[40px] h-[40px] rounded-md" />
                                 <div className="flex flex-col">
-                                  <p>{item.track.name}</p>
-                                  <Link>
+                                  <p className="text-[16px] font-thin">{item.track.name}</p>
+                                  <Link className="text-[14px] font-thin text-secondary-text">
                                   {item.track.artists.map((a)=>a.name+" ")}
                                   </Link>
                                 </div>
                               </div>
-                              <div className="text-secondary-text truncate text-[14px] font-thin col-span-3 ">{item.track.album.name}</div>
-                              <div className="text-secondary-text truncate text-[14px] font-thin col-span-2 ">{item.track.album.release_date}</div>
-                              <div className="text-secondary-text truncate text-[14px] font-thin col-span-2">{item.track.duration_ms/360}</div>
+                              <div className="text-secondary-text truncate text-[14px] hidden lg:block font-thin col-span-3 ">{item.track.album.name}</div>
+                              <div className="text-secondary-text truncate text-[14px] hidden lg:block font-thin col-span-2 ">{item.track.album.release_date}</div>
+                              <div className="text-secondary-text truncate text-[14px] font-thin col-span-1">{convertMstoMins(item.track.duration_ms)}</div>
                             </div>
                   })
                 }
