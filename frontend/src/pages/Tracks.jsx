@@ -48,6 +48,12 @@ const Tracks = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
+
+  function playSong(i){
+    const songs=data.tracks.items
+    dispatch(setSong({songs,i}))
+  }
+
   return (
         <div>
           <div className="px-6 pt-20 pb-[60px] rounded-t-md" style={{background:primaryColor.primary1}}>
@@ -97,7 +103,7 @@ const Tracks = () => {
                 {
                   data?.tracks?.items?.map((item,i)=>{
                       return <div key={item.track.name+i}
-                                  onClick={()=>{dispatch(setSong({item,i}))}}
+                                  onClick={()=>{playSong(i)}}
                                   className="grid grid-cols-12 gap-4  w-full py-1 px-4 items-center">
                               <div className="text-secondary-text truncate text-[14px] font-thin col-span-1 ">{i}</div>
                               <div className="truncate text-[14px] font-thin col-span-10 lg:col-span-5 flex gap-2 items-center">
