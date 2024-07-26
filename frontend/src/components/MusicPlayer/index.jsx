@@ -32,7 +32,7 @@ const MusicPlayer = () => {
     dispatch(next())
   }
 
-console.log(data,"sdd")
+
   return (
     <div className="relative sm:px-12 px-8 w-full flex items-center justify-between">
       <div className="grid grid-cols-12 items-center justify-center">
