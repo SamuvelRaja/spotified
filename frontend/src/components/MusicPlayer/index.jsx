@@ -39,13 +39,13 @@ console.log(data,"player")
     <div className="relative sm:px-6 px-1 w-full flex items-center justify-between">
       <div className="grid grid-cols-12 items-center justify-center w-full">
         <div className="truncate text-[14px] font-thin  flex gap-4 items-center col-span-4">
-        { data?.album ? 
+        { data?.track?.album ? 
           <>
-            <img src={data.album?.images[2]?.url} alt={data.album.name} className="w-[56px] h-[56px] rounded-md" />
+            <img src={data.track.album?.images[2]?.url} alt={data.track.album.name} className="w-[56px] h-[56px] rounded-md" />
             <div className="flex flex-col">
               <p className="text-[14px] font-thin">{data.name}</p>
               <Link className="text-[12px] font-thin text-secondary-text">
-              {data.artists.map((a)=>a.name+",  ")}
+              {data.track.artists.map((a)=>a.name+",  ")}
               </Link>
             </div>
           </> 
@@ -72,7 +72,7 @@ console.log(data,"player")
           appTime={appTime}
           />
           <Player
-            activeSong={data?.preview_url||''}
+            activeSong={data?.preview_url||data?.track.preview_url||''}
             volume={volume}
             isPlaying={isPlaying}
             seekTime={seekTime}

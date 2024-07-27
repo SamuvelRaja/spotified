@@ -18,13 +18,10 @@ export const songSlice=createSlice({
         setSong:(state,action)=>{
             const{songs,i}=action.payload
             state.allSongs=songs
+            state.song=songs[i]
             state.isPlaying=true
             state.trackIndex=i
-            if(songs[i]?.track?.album){
-                state.song=songs[i].track
-            }else{
-                state.song=songs[i]
-            }
+           
         },
         setImage:(state,action)=>{
             state.songImage=action.payload
