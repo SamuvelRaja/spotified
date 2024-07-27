@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import ArtistCard from "../components/ArtistCard";
+import AlbumCard from "../components/AlbumCard";
 
 const Search = () => 
 
@@ -11,7 +11,7 @@ const Search = () =>
             {
                 result?.map((item,i)=>{
                   
-                    return <ArtistCard key={item.id+i} img={item.images[0].url} title={item.name} description={item.description} id={item.id} />
+                    return <AlbumCard key={item.id+i} img={item.images[0].url} title={item.name} description={item.description} id={item.id} />
                 })
             }
         </div>

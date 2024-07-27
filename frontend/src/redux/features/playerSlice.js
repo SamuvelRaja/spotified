@@ -7,7 +7,8 @@ const initialState={
     isPlaying:false,
     trackIndex:null,
     searchSongs:[],
-    queryText:""
+    queryText:"",
+    songImage:""
 }
 
 export const songSlice=createSlice({
@@ -17,9 +18,16 @@ export const songSlice=createSlice({
         setSong:(state,action)=>{
             const{songs,i}=action.payload
             state.allSongs=songs
-            state.song=songs[i].track
             state.isPlaying=true
             state.trackIndex=i
+            if(songs[i]?.track?.album){
+                state.song=songs[i].track
+            }else{
+                state.song=songs[i]
+            }
+        },
+        setImage:(state,action)=>{
+            state.songImage=action.payload
         },
         play:(state)=>{
             state.isPlaying=!state.isPlaying
@@ -45,5 +53,5 @@ export const songSlice=createSlice({
     }
 })
 
-export const{setSong,play,next,previous,searchAction}=songSlice.actions
+export const{setSong,play,next,previous,searchAction,setImage}=songSlice.actions
 export default songSlice.reducer

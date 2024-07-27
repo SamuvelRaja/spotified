@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
 import {  Sidebar, MusicPlayer, TopPlay } from './components';
-import {Tracks,  Discover, Search,ArtistDetails } from './pages';
+import {Tracks,  Discover, Search,ArtistDetails,Album } from './pages';
 import { useEffect } from 'react';
 import { fetchAccessToken} from './assets/utility/fetchaccess';
 
@@ -29,6 +29,7 @@ const App = () => {
               <Route path="/" element={<Discover />} />
               <Route path="/artists/:id" element={<ArtistDetails />} />
               <Route path="/tracks/:id" element={<Tracks />} />
+              <Route path="/albums/:id" element={<Album />} />
               <Route path="/search" element={<Search />} />
             </Routes>
           </div>

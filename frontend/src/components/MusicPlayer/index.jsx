@@ -13,6 +13,7 @@ import Seekbar from './Seekbar';
 const MusicPlayer = () => {
   const dispatch=useDispatch()
   const data=useSelector((state) => state.song.song)
+  const songImage=useSelector((state) => state.song.songImage)
   const currentIndex=useSelector((state) => state.song.trackIndex)
   const isPlaying=useSelector((state) => state.song.isPlaying)
   const [repeat, setRepeat]=useState(false)
@@ -32,12 +33,13 @@ const MusicPlayer = () => {
     dispatch(next())
   }
 
+console.log(data,"player")
 
   return (
     <div className="relative sm:px-6 px-1 w-full flex items-center justify-between">
       <div className="grid grid-cols-12 items-center justify-center w-full">
         <div className="truncate text-[14px] font-thin  flex gap-4 items-center col-span-4">
-        { data? 
+        { data?.album ? 
           <>
             <img src={data.album?.images[2]?.url} alt={data.album.name} className="w-[56px] h-[56px] rounded-md" />
             <div className="flex flex-col">
@@ -47,7 +49,15 @@ const MusicPlayer = () => {
               </Link>
             </div>
           </> 
-        :" " }
+        :data?<>
+            <img src={songImage} alt={data.name} className="w-[56px] h-[56px] rounded-md" />
+            <div className="flex flex-col">
+              <p className="text-[14px] font-thin">{data.name}</p>
+              <Link className="text-[12px] font-thin text-secondary-text">
+              {data.artists.map((a)=>a.name+",  ")}
+              </Link>
+            </div>
+          </>:"" }
         </div>
         <div className='flex flex-col col-span-5 items-center'>
           <Controls isPlaying={isPlaying} repeat={repeat} setRepeat={setRepeat}
