@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import Loader from "./components/Loader";
+
 import {  Sidebar, MusicPlayer, TopPlay } from './components';
 import {Tracks,  Discover, Search,ArtistDetails } from './pages';
 import { useEffect } from 'react';
@@ -29,7 +29,7 @@ const App = () => {
               <Route path="/" element={<Discover />} />
               <Route path="/artists/:id" element={<ArtistDetails />} />
               <Route path="/tracks/:id" element={<Tracks />} />
-              <Route path="/search/:searchTerm" element={<Search />} />
+              <Route path="/search" element={<Search />} />
             </Routes>
           </div>
           

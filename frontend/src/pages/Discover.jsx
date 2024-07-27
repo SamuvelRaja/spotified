@@ -1,5 +1,5 @@
 import { useGetGenreQuery,useGetAllGenreQuery } from "../redux/slice/shazamapi";
-import Loader from "../components/Loader";
+import { Loaderalbum, Loaderlabel } from "../components/Loader";
 import Error from "../components/Error";
 import Label from "../components/label";
 import ArtistCard from "../components/ArtistCard";
@@ -33,24 +33,33 @@ const Discover = () => {
     });
 
     // Handle loading and error states
-    if (isFetchingGenres ) return <Loader />;
+    // if (isFetchingGenres ) {
+    //     return <Loader />
+        
+    //     };
     if (genresError) return <Error />;
     
 return (
     <div className="pt-16 px-6">
         <div className="flex gap-2 mt-4 flex-wrap">
-            {
-                
-                myList?.map((item)=>{
-                    return <Label key={item.id} name={item.name} value={item.id} query={genreQuery} setQuery={setGenreQuery}/>
-                })
-            }
+            {myList && myList.length > 0 ? (
+                myList.map((item) => (
+                <Label
+                    key={item.id}
+                    name={item.name}
+                    value={item.id}
+                    query={genreQuery}
+                    setQuery={setGenreQuery}
+                />
+                ))
+            ) : (
+                <Loaderlabel />
+            )}
         </div>
         <div className="flex flex-wrap justify-between gap-1  rounded-[8px]">
-            {
-                genreData?.playlists.items.map((item,i)=>{
+            {genreData && genreData.playlists.items.length > 0 ? (genreData?.playlists.items.map((item,i)=>{
                     return <ArtistCard key={item.id+i} img={item.images[0].url} title={item.name} description={item.description} id={item.id} />
-                })
+                })):<Loaderalbum/>  
             }
         </div>
     </div>

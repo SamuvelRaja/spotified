@@ -9,7 +9,7 @@ import plus from '../assets/plus.svg'
 import time from '../assets/time.svg'
 import { useDispatch } from "react-redux";
 import { setSong } from "../redux/features/playerSlice";
-
+import {Loadertracks} from "/src/components/Loader"
 
 const Tracks = () => {
     const dispatch=useDispatch()
@@ -42,7 +42,10 @@ const Tracks = () => {
   
 
   if (isFetching) {
-    return <div>Loading...</div>;
+    return <div className="px-6 pt-[400px]">
+            <Loadertracks/>
+          </div>
+    ;
   }
 
   if (error) {

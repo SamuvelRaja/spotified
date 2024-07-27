@@ -5,7 +5,9 @@ const initialState={
     song:null,
     currentTime:0,
     isPlaying:false,
-    trackIndex:null
+    trackIndex:null,
+    searchSongs:[],
+    queryText:""
 }
 
 export const songSlice=createSlice({
@@ -34,9 +36,14 @@ export const songSlice=createSlice({
                 state.song=state.allSongs[state.trackIndex-1].track
                 state.trackIndex=state.trackIndex-1
             }
+        },
+        searchAction:(state,action)=>{
+            const{songs,query}=action.payload
+            state.searchSongs=songs
+            state.queryText=query
         }
     }
 })
 
-export const{setSong,play,next,previous}=songSlice.actions
+export const{setSong,play,next,previous,searchAction}=songSlice.actions
 export default songSlice.reducer
