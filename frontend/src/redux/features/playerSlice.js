@@ -25,14 +25,14 @@ export const songSlice=createSlice({
         next:(state)=>{
             console.log(state.allSongs.length-1>state.trackIndex,state.allSongs.length-1,"nnn",state.trackIndex)
             if(state.allSongs.length-1>state.trackIndex){
-                state.trackIndex=state.trackIndex+1
                 state.song=state.allSongs[state.trackIndex+1].track
+                state.trackIndex=state.trackIndex+1
             }
         },
         previous:(state)=>{
             if(state.trackIndex>0){
-                state.trackIndex=state.trackIndex-1
                 state.song=state.allSongs[state.trackIndex-1].track
+                state.trackIndex=state.trackIndex-1
             }
         }
     }
