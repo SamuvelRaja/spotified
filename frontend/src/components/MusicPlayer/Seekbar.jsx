@@ -5,7 +5,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
   const getTime = (time) => `${Math.floor(time / 60)}:${(`0${Math.floor(time % 60)}`).slice(-2)}`;
 
   return (
-    <div className="hidden sm:flex flex-row items-center">
+    <div className="hidden sm:flex flex-row items-center w-full">
       
       <p className="text-white">{value === 0 ? '0:00' : getTime(value)}</p>
       <input
@@ -15,7 +15,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
         min={min}
         max={max}
         onInput={onInput}
-        className="md:block w-24 md:w-56 2xl:w-96 h-1 mx-4 2xl:mx-6 rounded-lg transition-all"
+        className="md:block w-full h-[6px] transition-all mx-3 rounded-[0px] border-none outline-none"
       />
       <p className="text-white">{max === 0 ? '0:00' : getTime(max)}</p>
       
