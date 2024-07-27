@@ -36,11 +36,10 @@ const TopPlay = () => {
     <div className="flex items-center gap-2">
       {
       location.pathname!=="/search"?<>
-      <button className="btn-white">Explore Premium</button>
-      <button className="btn-black"><img src={downl} alt="" className="w-[16px] h-[16px] inline-flex mr-2" /> Install App</button>
-      <div className="rounded-full bg-[#0000008a] w-[32px] h-[32px] p-2"><img src={bell} alt="" className="w-[16px] h-[16px]" /></div>
-      </>:''
+      <button className="btn-white hidden md:block">Explore Premium</button></>:''
       }
+      <button className="btn-black hidden md:block"><img src={downl} alt="" className="w-[16px] h-[16px] inline-flex mr-2" /> Install App</button>
+      <div className="rounded-full hidden md:block bg-[#0000008a] w-[32px] h-[32px] p-2"><img src={bell} alt="" className="w-[16px] h-[16px]" /></div>
       <div className="rounded-full bg-[#0000008a] w-[32px] h-[32px] p-1"><img src={spot} alt="" className="w-[24px] h-[24px]" /></div>
     </div>
   </div>

@@ -102,3 +102,14 @@ input[type="range"]:hover{
 progress[value]::-webkit-progress-bar:hover {
   background-color: #1ed760;
 }
+.search:hover{
+    background-color: #2a2a2a;
+    -webkit-box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .2);
+    box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .2);
+    outline: none;
+}
+.search:focus{
+    -webkit-box-shadow: 0 0 0 2px #fff;
+    box-shadow: 0 0 0 2px #fff;
+    outline: none;
+}
