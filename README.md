@@ -25,7 +25,7 @@ To get started with Spotified, follow these steps:
 4. Start the backend server by running `npm start`.
 5. Navigate to the `frontend` folder and install the dependencies by running `npm install`.
 6. Set up the necessary environment variables in the `.env` file.
-7. Start the frontend development server by running `npm start`.
+7. Start the frontend development server by running `npm run dev`.
 
 ## Contributing
 
