@@ -4,9 +4,10 @@ import Cookies from 'js-cookie';
 
 export const fetchAccessToken = async () => {
   const secretKey = import.meta.env.VITE_SECRET_KEY;
+  const fetchurl= import.meta.env.VITE_MODE=='DEV'?import.meta.env.VITE_DEV_BE:import.meta.env.VITE_PROD_BE
 
   try {
-    const response = await axios.post('http://localhost:8000/token', {
+    const response = await axios.post(fetchurl, {
       secret: secretKey
     }, {
       withCredentials: true // Include credentials (cookies)
