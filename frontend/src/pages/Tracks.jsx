@@ -15,15 +15,13 @@ const Tracks = () => {
     const dispatch=useDispatch()
     const{id}=useParams()
     const{data, isFetching, error}=useGetPlaylistQuery(id)
-    // const{data:trackData, isFetching:isTrackFetching, error:isTrackError}=useGetTrackQuery(id)
-    console.log(data,"playlists")
+
     const[primaryColor, setPrimaryColor]=useState({primary1:"transparent",primary2:'rgb(0,0,0)'})
     
     useEffect(() => {
     async function callColor() {
       if (data?.images?.[0]?.url) {
         const imageUrl = data.images[0].url;
-        console.log(imageUrl, "iurl");  
         if(imageUrl!=undefined){
             const pColor = await getImagePrimaryColor(imageUrl);
             const color = pColor;

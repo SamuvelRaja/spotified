@@ -33,7 +33,7 @@ const MusicPlayer = () => {
     dispatch(next())
   }
 
-console.log(data,"player")
+console.log(data,"player",data?.preview_url||data?.track.preview_url||'',data?.track?.album?.images[2]?.url)
 
   return (
     <div className="relative sm:px-6 px-1 w-full flex items-center justify-between">

@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 const Discover = () => {
     // Fetch genre list data
     const { data: genreListData, isFetching: isFetchingGenres, error: genresError } = useGetAllGenreQuery();
-    console.log(genreListData, "gg");
+    
 
     // Set initial state for genre query and myList
     const [genreQuery, setGenreQuery] = useState(null);
@@ -32,11 +32,7 @@ const Discover = () => {
         skip: !genreQuery,
     });
 
-    // Handle loading and error states
-    // if (isFetchingGenres ) {
-    //     return <Loader />
-        
-    //     };
+    
     if (genresError) return <Error />;
     
 return (
