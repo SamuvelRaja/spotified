@@ -9,7 +9,7 @@ const port = 8000;
 
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:3000', // Change this to your client's origin
+  origin: 'https://vibe.samjs.me', // Change this to your client's origin
   credentials: true // Allow credentials (cookies)
 }))
 app.use(cookieParser());
@@ -40,9 +40,10 @@ app.post('/token', async (req, res) => {
     
     // Set the access token as a cookie
     res.cookie('acctk', accessToken, {
-      httpOnly: true, 
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 3600000
+      httpOnly: true,
+      secure: true, // Always secure in production
+      sameSite: 'strict', // Add SameSite for extra protection
+      maxAge: 3600000 
     });
 
     res.status(200).json({ tkn: accessToken });
