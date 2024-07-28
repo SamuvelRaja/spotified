@@ -5,7 +5,7 @@ import miniplay from "../assets/miniplay.svg"
 const AlbumCard = ({ img, title, description,id }) => {
   return (
     <Link to={`/albums/${id}`}>
-        <div className="px-3 pt-2 pb-4 hover:bg-tertiary-bg w-[180px] mt-8 rounded-md art-cards cursor-pointer">
+        <div className="px-3 pt-2 pb-4 hover:bg-tertiary-bg w-[134px] md:w-[180px] mt-8 rounded-md art-cards cursor-pointer">
           <div className="relative">
             <img src={img} alt="" width="232" height="232" className="rounded-[12px]" />
             <div className="absolute right-2 bottom-2 mini-play rounded-full  w-[48px] h-[48px] flex opacity-0 items-center justify-center bg-green-h hover:bg-[#3be477]">

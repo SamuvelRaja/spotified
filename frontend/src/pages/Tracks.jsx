@@ -60,7 +60,7 @@ const Tracks = () => {
   return (
         <div>
           <div className="px-6 pt-20 pb-[60px] rounded-t-md" style={{background:primaryColor.primary1}}>
-            <div className="flex gap-4 items-end h-[232px]">
+            <div className="flex flex-col md:flex-row gap-4 md:items-end md:h-[232px]">
               <div>
                 <img src={data?.images[0]?.url} className="min-w-[190px] rounded-md"  width={"232px"} height={"232px"} alt="" />
               </div>

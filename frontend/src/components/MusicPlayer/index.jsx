@@ -38,12 +38,12 @@ console.log(data,"player")
   return (
     <div className="relative sm:px-6 px-1 w-full flex items-center justify-between">
       <div className="grid grid-cols-12 items-center justify-center w-full">
-        <div className="truncate text-[14px] font-thin  flex gap-4 items-center col-span-4">
+        <div className="truncate text-[14px] font-thin  flex gap-4 items-center col-span-8 md:col-span-4">
         { data?.track?.album ? 
           <>
             <img src={data.track.album?.images[2]?.url} alt={data.track.album.name} className="w-[56px] h-[56px] rounded-md" />
             <div className="flex flex-col">
-              <p className="text-[14px] font-thin">{data.name}</p>
+              <p className="text-[14px] font-thin">{data.track.album.name}</p>
               <Link className="text-[12px] font-thin text-secondary-text">
               {data.track.artists.map((a)=>a.name+",  ")}
               </Link>
@@ -59,7 +59,7 @@ console.log(data,"player")
             </div>
           </>:"" }
         </div>
-        <div className='flex flex-col col-span-5 items-center'>
+        <div className='flex flex-col col-span-4 md:col-span-5 items-center'>
           <Controls isPlaying={isPlaying} repeat={repeat} setRepeat={setRepeat}
           shuffle={shuffle} setShuffle={setShuffle} currentSongs={convertMstoMins(data?.duration_ms||'0000')} 
           handlePlayPause={handlePlayPause} handlePrevSong={handlePrevSong} handleNextSong={handleNextSong}/>
@@ -83,7 +83,7 @@ console.log(data,"player")
             onLoadedData={(event) => setDuration(event.target.duration)}
             />
         </div>
-        <div className='flex col-span-3 w-full justify-end'>
+        <div className='flex col-span-0 md:col-span-3 w-full justify-end'>
           <VolumeBar value={volume} min="0" max="1" onChange={(event) => setVolume(event.target.value)} setVolume={setVolume}/>
         </div>
       </div>

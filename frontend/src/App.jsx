@@ -18,7 +18,7 @@ const App = () => {
   return (
     <div className="relative flex font-spotify h-screen">
       <Sidebar />
-      <div className="flex-1 h-[calc(100vh-96px)]  flex flex-col bg-primary-bg m-2 ml-0 rounded-md">
+      <div className="flex-1 h-[calc(100vh-76px)] lg:h-[calc(100vh-96px)]  flex flex-col bg-primary-bg m-2 ml-2 lg:ml-0 rounded-md">
         {/* <Searchbar /> */}
         <div className=" sticky top-2 h-[0px] z-50 bg-fixed bg-tertiary-bg ">
             <TopPlay />
@@ -36,7 +36,7 @@ const App = () => {
           
         </div>
       </div>
-      <div className="absolute h-[72px] bottom-2 left-0 right-0 flex animate-slideup bg-black z-10 px-2">
+      <div className="fixed h-[72px] backdrop-filter backdrop-blur-sm bg-opacity-70 bottom-[75px] lg:bottom-2 left-0 right-0 flex animate-slideup bg-black z-50 px-2 mx-6 rounded-md ">
           <MusicPlayer />
         </div>
    
