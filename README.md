@@ -1,136 +1,41 @@
-# Project Lyrics
+# Spotified
 
-Develop an elegant React.js Music Application. 
+Spotified is a full-stack application built with Node.js and React. The main purpose of the Node.js backend is to obtain a Spotify Web API access token. Here's how the app functions:
 
-Check out the complete project requirements [here](https://docs.google.com/document/d/13PeFwRlPEhMw_HPyrIrInvQuKaVWnpNmcv-y3NA208s/edit?usp=sharing)
+- The backend server, implemented in Node.js, is responsible for requesting an authentication token from the Spotify Web API.
+- The frontend, built with React, uses React Toolkit for state management and React Query for data fetching.
 
-# Contributing
+## Backend
 
-When contributing to this repository, please first discuss the change you wish to make via issue.
-Please note we have a [code of conduct](CODE_OF_CONDUCT.md), please follow it in all your interactions with the project.
+The backend is located in the `backend` folder. When a user loads the React app, the frontend sends a request to the backend with a secret key stored in the frontend environment. The backend verifies the secret key and sends an authorization request to Spotify with the client ID and token stored in the backend environment.
 
+If the access token is received successfully, the backend sets a cookie and sends the response to the frontend. The frontend then stores the token in local storage for subsequent requests made from the frontend app. The Node.js backend uses cookies to verify that the token is valid every time the frontend app reloads.
 
-## System Requirements
+## Frontend
 
-To get started with development, you need to install few tools
+The frontend is located in the `frontend` folder. It is built with React and interacts with the backend to obtain the Spotify access token. The frontend app sends a request to the backend with the secret key, and upon receiving the token, it stores it in local storage for future use.
 
-1. git 
-   
-   `git` version 2.13.1 or higher. Download [git](https://git-scm.com/downloads) if you don't have it already.
+## Getting Started
 
-   To check your version of git, run:
+To get started with Spotified, follow these steps:
 
-   ```shell
-    git --version
-   ```
+1. Clone the repository.
+2. Navigate to the `backend` folder and install the dependencies by running `npm install`.
+3. Set up the necessary environment variables in the `.env` file.
+4. Start the backend server by running `npm start`.
+5. Navigate to the `frontend` folder and install the dependencies by running `npm install`.
+6. Set up the necessary environment variables in the `.env` file.
+7. Start the frontend development server by running `npm start`.
 
-2. node 
-   
-   `node` version 16.15.1 or higher. Download [node](https://nodejs.org/en/download/) if you don't have it already.
+## Contributing
 
-   To check your version of node, run:
+Contributions are welcome! If you'd like to contribute to Spotified, please follow these guidelines:
 
-   ```shell
-    node --version
-   ```
-
-3. npm
-  
-   `npm` version 5.6.1 or higher. You will have it after you install node.
-
-   To check your version of npm, run:
-
-   ```shell
-    npm --version
-   ```
-
-## Setup
-
-To set up a development environment, please follow these steps:
-
-1. Clone the repo
-
-   ```shell
-    git clone https://github.com/JavaScript-Mastery-PRO/project1_team4_repository.git
-   ```
-
-2. Change directory to the project directory
-
-    ```shell
-    cd project1_team4_repository
-    ```
-
-3. Install the dependencies
-   
-    ```shell
-     npm install
-    ```
-
-    If you get an error, please check the console for more information.
-
-    If you don't get an error, you are ready to start development.
-
-4. Run the app
-   
-    ```shell
-    npm run dev
-    ```
-
-    Project will be running in the browser.
-
-    Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-## Issues
-
-You've found a bug in the source code, a mistake in the documentation or maybe you'd like a new feature? You can help us by [submitting an issue on GitHub](https://github.com/orgs/JavaScript-Mastery-PRO/projects/8). Before you create an issue, make sure to search the issue archive -- your issue may have already been addressed!
-
-Please try to create bug reports that are:
-
-- _Reproducible._ Include steps to reproduce the problem.
-- _Specific._ Include as much detail as possible: which version, what environment, etc.
-- _Unique._ Do not duplicate existing opened issues.
-- _Scoped to a Single Bug._ One bug per report.
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your forked repository.
+5. Submit a pull request to the main repository.
 
 
-## Pull Request
 
-There are 2 main work flows when dealing with pull requests:
-
-* Pull Request from a [forked repository](https://help.github.com/articles/fork-a-repo)
-* Pull Request from a branch within a repository
-
-Here we are going to focus on 2. Creating a Topical Branch:
-
-
-1. First, we will need to create a branch from the latest commit on master. Make sure your repository is up to date first using
-
-   ```bash
-    git pull origin main
-   ```
-
-   *Note:* `git pull` does a `git fetch` followed by a `git merge` to update the local repo with the remote repo. For a more detailed explanation, see [this stackoverflow post](http://stackoverflow.com/questions/292357/whats-the-difference-between-git-pull-and-git-fetch).
-
-2. To create a branch, use `git checkout -b <new-branch-name> [<base-branch-name>]`, where `base-branch-name` is optional and defaults to `main`. 
-   
-   Use a standard convention for branch names. For example, `<your-name>-dev`. It will be easier to track your pull requests if you use this convention.
-   
-   I'm going to create a new branch called `jsm-dev` from the `main` branch and push it to github.
-
-   ```bash
-    git checkout -b jsm-dev main
-    git push origin jsm-dev
-   ```
-
-3. To create a pull request, you must have changes committed to your new branch.
-
-4. Go to [Pull Requests](https://github.com/JavaScript-Mastery-PRO/project1_team4_repository/pulls) and click on the `New Pull Request` button.
-
-5. Select the `main` branch as the `base` branch and the `jsm-dev` branch as the `compare` branch.
-
-6. Follow the template and fill in the proper information for the pull request.
-
-7. Click on the `Submit` button.
-
-8. You have successfully created a pull request. Now wait for mentor approval. Once approved, you can merge the pull request.
-
-#
