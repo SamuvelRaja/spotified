@@ -14,7 +14,7 @@ const Discover = () => {
     // Set initial state for genre query and myList
     const [genreQuery, setGenreQuery] = useState(null);
     const [myList, setMyList] = useState([]);
-    const genres = ["Tamil", "Malayalam", "Love", "Hindi", "Charts", "Party", "Pop"];
+    const genres = ["Malayalam", "Love", "Tamil", "Charts", "Party", "Pop","Hindi"];
 
     // Update genre query and myList once the genre list data is fetched
     useEffect(() => {
@@ -56,7 +56,7 @@ return (
                 <Loaderlabel />
             )}
         </div>
-        <div className="flex flex-wrap justify-between gap-1  rounded-[8px]">
+        <div className="flex flex-wrap justify-around  md:justify-between gap-1  rounded-[8px]">
             {genreData && genreData.playlists.items.length > 0 ? (genreData?.playlists.items.map((item,i)=>{
                     return <ArtistCard key={item.id+i} img={item.images[0].url} title={item.name} description={item.description} id={item.id} />
                 })):<Loaderalbum/>  

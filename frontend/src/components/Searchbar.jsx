@@ -46,7 +46,7 @@ const Searchbar = () => {
       </div>
       <input
         type="text"
-        className="rounded-3xl py-3 px-4 pl-9 search md:w-[360px] w-[260px] bg-[#242424]"
+        className="rounded-3xl py-2 md:py-3 px-4 pl-9 search md:w-[360px] w-[240px] bg-[#242424]"
         value={query||pquery}
         onChange={handleChange}
       />

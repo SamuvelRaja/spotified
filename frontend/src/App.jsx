@@ -20,7 +20,7 @@ const App = () => {
       <Sidebar />
       <div className="flex-1 h-[calc(100vh-76px)] lg:h-[calc(100vh-96px)]  flex flex-col bg-primary-bg m-2 ml-2 lg:ml-0 rounded-md">
         {/* <Searchbar /> */}
-        <div className=" sticky top-2 h-[0px] z-50 bg-fixed bg-tertiary-bg ">
+        <div className=" sticky top-2 h-[0px] z-50  ">
             <TopPlay />
           </div>
         <div className=" rounded-md overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
@@ -36,7 +36,7 @@ const App = () => {
           
         </div>
       </div>
-      <div className="fixed h-[72px] backdrop-filter backdrop-blur-sm bg-opacity-70 bottom-[75px] lg:bottom-2 left-0 right-0 flex animate-slideup bg-black z-50 px-2 mx-6 rounded-md ">
+      <div className="fixed h-[72px] backdrop-filter backdrop-blur-sm bg-opacity-70 bottom-[76px] lg:bottom-2 left-0 right-0 flex animate-slideup bg-black z-50 px-2 mx-6 rounded-md ">
           <MusicPlayer />
         </div>
    

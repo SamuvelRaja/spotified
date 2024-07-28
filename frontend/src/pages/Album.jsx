@@ -61,7 +61,7 @@ const Album = () => {
   return (
         <div>
           <div className="px-6 pt-20 pb-[60px] rounded-t-md" style={{background:primaryColor.primary1}}>
-            <div className="flex gap-4 items-end h-[232px]">
+            <div className="flex flex-col md:flex-row gap-4 md:items-end md:h-[232px]">
               <div>
                 <img src={data?.images[0]?.url} className="min-w-[190px] rounded-md"  width={"232px"} height={"232px"} alt="" />
               </div>
@@ -109,7 +109,7 @@ const Album = () => {
                       return <div key={item.name+i}
                                   onClick={()=>{playSong(i)}}
                                   className="grid grid-cols-12 gap-4  w-full py-1 px-4 items-center">
-                              <div className="text-secondary-text truncate text-[14px] font-thin col-span-1 ">{i}</div>
+                              <div className="text-secondary-text text-[14px] font-thin col-span-1 ">{i}</div>
                               <div className="truncate text-[14px] font-thin col-span-10 lg:col-span-5 flex gap-2 items-center">
                                 <img src={data.images[2]?.url} alt={data.name} className="w-[40px] h-[40px] rounded-md" />
                                 <div className="flex flex-col">
@@ -121,7 +121,7 @@ const Album = () => {
                               </div>
                               <div className="text-secondary-text truncate text-[14px] hidden lg:block font-thin col-span-3 ">{data.name}</div>
                               <div className="text-secondary-text truncate text-[14px] hidden lg:block font-thin col-span-2 ">{data.release_date}</div>
-                              <div className="text-secondary-text truncate text-[14px] font-thin col-span-1">{convertMstoMins(item.duration_ms)}</div>
+                              <div className="text-secondary-text  text-[14px] font-thin col-span-1">{convertMstoMins(item.duration_ms)}</div>
                             </div>
                   })
                 }

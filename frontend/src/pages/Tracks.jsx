@@ -108,7 +108,7 @@ const Tracks = () => {
                       return <div key={item.track.name+i}
                                   onClick={()=>{playSong(i)}}
                                   className="grid grid-cols-12 gap-4  w-full py-1 px-4 items-center">
-                              <div className="text-secondary-text truncate text-[14px] font-thin col-span-1 ">{i}</div>
+                              <div className="text-secondary-text text-[14px] font-thin col-span-1 ">{i}</div>
                               <div className="truncate text-[14px] font-thin col-span-10 lg:col-span-5 flex gap-2 items-center">
                                 <img src={item.track.album?.images[2]?.url} alt={item.track.album.name} className="w-[40px] h-[40px] rounded-md" />
                                 <div className="flex flex-col">
@@ -120,7 +120,7 @@ const Tracks = () => {
                               </div>
                               <div className="text-secondary-text truncate text-[14px] hidden lg:block font-thin col-span-3 ">{item.track.album.name}</div>
                               <div className="text-secondary-text truncate text-[14px] hidden lg:block font-thin col-span-2 ">{item.track.album.release_date}</div>
-                              <div className="text-secondary-text truncate text-[14px] font-thin col-span-1">{convertMstoMins(item.track.duration_ms)}</div>
+                              <div className="text-secondary-text  text-[14px] font-thin col-span-1">{convertMstoMins(item.track.duration_ms)}</div>
                             </div>
                   })
                 }

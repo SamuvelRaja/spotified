@@ -6,8 +6,8 @@ const Search = () =>
 
 {
   const result=useSelector((state)=>state.song.searchSongs)
-  return <div className="pt-[88px] px-6">
-    <div className="flex flex-wrap justify-between gap-1  rounded-[8px]">
+  return <div className="pt-16 px-6">
+    <div className="flex flex-wrap justify-around  md:justify-between gap-1  rounded-[8px]">
             {
                 result?.map((item,i)=>{
                   
