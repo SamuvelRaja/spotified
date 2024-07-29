@@ -5,7 +5,7 @@ import plus from "/src/assets/plus.svg"
 import { Link } from "react-router-dom"
 
 const Sidebar = () => (
-  <nav className="fixed bottom-0 lg:relative z-50  md:max-w-[420px] md:min-w-[280px] w-full lg:w-[25%] p-2 ">
+  <nav className="fixed bg-black bottom-0 lg:relative z-50  md:max-w-[420px] md:min-w-[280px] w-full lg:w-[25%] p-2 ">
     <div className="flex gap-6 flex-row lg:flex-col justify-center w-full ntop lg:bg-primary-bg lg:p-8 lg:mb-2 rounded-md ">
       <Link to={"/"}>
         <div className="flex flex-col items-center lg:flex-row lg:gap-6 nav-txt "><img src={Home} className="w-[24px] h-[24px]" alt=""  /> <span className=" font-medium tran-1 text-[14px] lg:text-[16px] text-secondary-text "> Home</span></div>
