@@ -14,6 +14,9 @@ app.use(cors({
 }))
 app.use(cookieParser());
 
+app.get('/test', (req, res) => {
+    res.status(200).send('Server is working');
+});
 
 app.post('/token', async (req, res) => {
   // Convert the cookie object to a regular JavaScript object
